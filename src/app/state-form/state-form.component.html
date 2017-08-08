@@ -1,0 +1,54 @@
+<h2>State Form</h2>
+<form [formGroup]="stateForm">
+  <div>
+    <input type="text" placeholder="firstControl" formControlName="firstControl">
+    <span *ngIf="firstControl.dirty && firstControl.invalid">First control is required!</span>
+  </div>
+  <div>
+    <input type="text" placeholder="secondControl" formControlName="secondControl">
+    <span *ngIf="secondControl.dirty && secondControl.invalid">Second control is required!</span>
+  </div>
+</form>
+<button (click)="setStatus()">Mark as Touched</button>
+
+<table style="width: 50%;">
+  <tr>
+    <td>
+      <pre>
+        First Control State:
+        valid : {{ firstControl.valid }}
+        invalid : {{ firstControl.invalid }}
+        touched : {{ firstControl.touched }}
+        untouched: {{ firstControl.untouched }}
+        dirty : {{ firstControl.dirty }}
+        pristine : {{ firstControl.pristine }}
+        pending: {{firstControl.pending}}
+        disabled: {{firstControl.disabled}}
+        </pre>
+    </td>
+    <td>
+      <pre>
+      Second Control State:
+      valid : {{ secondControl.valid }}
+      invalid : {{ secondControl.invalid }}
+      touched : {{ secondControl.touched }}
+      untouched: {{ secondControl.untouched }}
+      dirty : {{ secondControl.dirty }}
+      pristine : {{ secondControl.pristine }}
+      pending: {{secondControl.pending}}
+      disabled: {{secondControl.disabled}}
+      </pre>
+    </td>
+    <pre>
+      Form State:
+      valid : {{ stateForm.valid }}
+      invalid : {{ stateForm.invalid }}
+      touched : {{ stateForm.touched }}
+      untouched: {{ stateForm.untouched }}
+      dirty : {{ stateForm.dirty }}
+      pristine : {{ stateForm.pristine }}
+      pending: {{stateForm.pending}}
+      disabled: {{stateForm.disabled}}
+      </pre>
+  </tr>
+</table>

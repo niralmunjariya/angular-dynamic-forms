@@ -1,0 +1,15 @@
+<h2>FormBuilder Form</h2>
+<form [formGroup]="registrationForm" (ngSubmit)="logValue()">
+  <input type="text" placeholder="username" formControlName="username">
+  <input type="text" formControlName="email" placeholder="email">
+  <input type="password" formControlName="password" placeholder="password">
+  <div formGroupName="address">
+    <input type="text" formControlName="city" placeholder="country" />
+    <input type="text" formControlName="street" placeholder="country" />
+    <input type="text" formControlName="zip" placeholder="country" />
+  </div>
+  <div formArrayName="phones">
+    <input type="text" *ngFor="let phone of registrationForm.get('phones').controls;let i=index;" [formControlName]="i">
+  </div>
+  <button type="submit">submit</button>
+</form>

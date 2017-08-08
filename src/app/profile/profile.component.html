@@ -1,0 +1,21 @@
+<div class="card">
+  <div class="card-block">
+    <h4 class="card-title">Profile</h4>
+    <form [formGroup]="profileForm" (ngSubmit)="saveProfile()">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" formControlName="name" class="form-control" placeholder="Enter name" />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" id="email" formControlName="email" class="form-control" placeholder="Enter email" />
+      </div>
+      <div formArrayName="experience">
+        <app-experience *ngFor="let group of experience.controls;let i=index;" (delete)="onDeleteExperience(i)" [group]="experience.controls[i]">
+        </app-experience>
+      </div>
+      <button type="submit" class="btn btn-success">Save Profile</button>
+      <button (click)="addExperience()" class="btn btn-default">+ Add Experience</button>
+    </form>
+  </div>
+</div>
